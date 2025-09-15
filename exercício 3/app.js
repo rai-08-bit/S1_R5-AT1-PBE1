@@ -6,11 +6,13 @@ app.use(express.json());
 
 app.post ('/login', (req, res) =>{
     try {
-        const {dadosUsuario} = req.body;
-        console.log(dadosUsuario)
+        const {dados} = req.body;
+        console.log(dados)
 
-        if (dadosUsuario == true) {
-            
+        if (dados.usuario == "Raíssa" && dados.senha == "Issa1412") {
+            res.status(201).json(`Olá ${dados.usuario}`)
+        } else {
+            res.status(401).json("Senha ou usuário incorretas, por favor tente novamente")
         }
     } catch (error) {
         console.log(error);
